@@ -3,6 +3,7 @@ import './Dash.css';
 import catLogo from '../c1.png'; // Replace with your actual image file path
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "./done.json";
+import { FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
 
 function Dash() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -77,15 +78,34 @@ function Dash() {
                     <h2>Coins 🪙</h2>
                     <p style={{fontSize:26}}>{coins}</p>
                 </section>
-                
+                <section className="section-4">
+                    <h2>Knowledge Rate 🚀 </h2>
+                    <p style={{fontSize:26}}>1000🪙/question</p>
+                    <p style={{fontSize:26}}>10000🪙/prediction</p>
+                </section>
+                <section className="section-5">
+          <h2>Join Us</h2>
+          <div className="social">
+            <FaTwitter size={30} />
+            <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter</button>
+          </div>
+          <div className="social">
+            <FaYoutube size={30} />
+            <button onClick={() => window.open('https://youtube.com', '_blank')}>Join YouTube</button>
+          </div>
+          <div className="social">
+            <FaTelegram size={30} />
+            <button onClick={() => window.open('https://telegram.org', '_blank')}>Join Telegram</button>
+          </div>
+        </section>
                 <section className="section-4">
                     <h2>Level Xp 🚀 </h2>
                     <p style={{fontSize:26}}>{level}</p>
                 </section>
-              
+       
             </main>
+            
         </div>
-        
     );
 }
 

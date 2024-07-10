@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    margin-bottom: 50px;
+  
     padding: 20px;
     /* height: 100vh; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,6 +19,8 @@
 .main-content {
     display: grid;
     gap: 10px;
+    width: 250px;
+    margin-bottom: 200px;
     overflow-y: auto;
     flex:1;
 }
@@ -45,4 +47,30 @@
     margin: 0 auto;
     margin-top: -100;
 }
+
+.social button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .social button:hover {
+    background-color: #0056b3;
+  }
+
+  .section-5 {
+    margin-top: 20px;
+  }
+  
+  .social {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
 
