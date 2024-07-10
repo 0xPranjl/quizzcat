@@ -82,6 +82,9 @@ function Daily() {
                 </ul>
                 {feedback && <div className={`feedback ${feedback === 'Correct!' ? 'correct' : 'incorrect'}`}>{feedback}</div>}
             </div>
+            <br>
+            </br>
+            <br></br>
             <div className="coin-container">
                 <p>Coins: {coins}</p>
             </div>

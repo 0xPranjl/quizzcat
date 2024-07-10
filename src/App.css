@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   font-family: Arial, sans-serif;
-  background-image: url('c4.png'); /* Path to your local image in the public folder */
+  /* background-image: url('c4.png'); Path to your local image in the public folder */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,4 +52,42 @@
   color: #333; /* Content text color */
 }
 
-/* Other existing styles continue below */
+
+.app {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto; /* Ensure content can scroll if it overflows */
+}
+
+.bottom-navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.bottom-navigation button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.bottom-navigation button.active {
+  font-weight: bold;
+  color: #007bff;
+}
+

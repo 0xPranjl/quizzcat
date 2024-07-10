@@ -20,14 +20,12 @@ function Dash() {
                     <p style={{fontSize:32}}>180000002</p>
                 </section>
               
-                <section className="section-4">
+                {/* <section className="section-4">
                     <h2>Coins</h2>
                     <p>{coins} NotCoins</p>
-                </section>
+                </section> */}
             </main>
-            <footer className="footer">
-                <p>&copy; 2024 NotCoin. All rights reserved.</p>
-            </footer>
+            
         </div>
     );
 }

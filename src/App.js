@@ -1,114 +1,60 @@
-import React, { useState } from 'react';
-import './App.css';
-import Daily from './Pages/Daily';
-import Dash from './Pages/Dash';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import Dash from "../src/Pages/Dash";
+import Daily from "../src/Pages/Daily";
+import Polls from "../src/Pages/Polls";
+const AppContainer = styled.div`
+  min-height: 100vh;
+  background-image: url('path_to_your_background_image');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+`;
 
-const quizData = [
-    {
-        question: "What is the capital of France?",
-        options: ["Paris", "London", "Berlin", "Rome"],
-        answer: "Paris",
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Mars", "Jupiter", "Saturn"],
-        answer: "Mars",
-    },
-    {
-        question: "Who painted the Mona Lisa?",
-        options: ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"],
-        answer: "Leonardo da Vinci",
-    },
-    {
-        question: "What is the largest mammal in the world?",
-        options: ["Elephant", "Blue Whale", "Giraffe", "Hippo"],
-        answer: "Blue Whale",
-    },
-    {
-        question: "Which is the tallest mountain in the world?",
-        options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
-        answer: "Mount Everest",
-    }
-];
+const StickyNavbar = styled.nav`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  z-index: 100;
+`;
 
-function App() {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [feedback, setFeedback] = useState('');
-    const [coins, setCoins] = useState(0);
-    const [answered, setAnswered] = useState(false);
-    const [activeTab, setActiveTab] = useState('Dashboard');
+const Tab = styled.div`
+  padding: 10px;
+  cursor: pointer;
+  color: ${props => (props.active ? '#007bff' : '#000000')};
+`;
 
-    const handleOptionSelect = (option) => {
-        if (answered) return; // Prevent multiple clicks
-
-        const correctAnswer = quizData[currentQuestion].answer;
-        const isCorrect = option === correctAnswer;
-
-        if (isCorrect) {
-            setFeedback('Correct!');
-            setCoins(coins + 1000);
-        } else {
-            setFeedback('Wrong!');
-            setCoins(coins + 100);
-        }
-
-        setAnswered(true);
-        setTimeout(() => {
-            if (currentQuestion < quizData.length - 1) {
-                setCurrentQuestion(currentQuestion + 1);
-                setFeedback('');
-                setAnswered(false); // Reset answered state for next question
-            } else {
-                alert('Quiz completed!');
-                setCurrentQuestion(0);
-                setFeedback('');
-                setCoins(0);
-                setAnswered(false); // Reset answered state
-            }
-        }, 1000);
-    };
-
-    const renderContent = () => {
-        switch (activeTab) {
-            case 'Dashboard':
-                return (
-                    <div className="dashboard">
-                       <Dash></Dash>
-                        {/* Add your dashboard content here */}
-                    </div>
-                );
-            case 'Daily Task':
-                return (
-                    <div className="daily-task">
-                        
-                        <Daily></Daily>
-                        {/* Add your daily task content here */}
-                    </div>
-                );
-            case 'Polls':
-                return (
-                    <div className="polls">
-                        <h2>Polls Content</h2>
-                        {/* Add your polls content here */}
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
-
-    return (
-        <div className="app">
-            <div className="content">
-                {renderContent()}
-            </div>
-            <div className="bottom-navigation">
-                <button className={activeTab === 'Dashboard' ? 'active' : ''} onClick={() => setActiveTab('Dashboard')}>Dashboard</button>
-                <button className={activeTab === 'Daily Task' ? 'active' : ''} onClick={() => setActiveTab('Daily Task')}>Daily Task</button>
-                <button className={activeTab === 'Polls' ? 'active' : ''} onClick={() => setActiveTab('Polls')}>Polls</button>
-            </div>
-        </div>
-    );
+const App = () => {
+  return (
+    <Router>
+      <AppContainer>
+        <Routes>
+        <Route path="/" element={<Dash/>}  />
+        <Route path="/Dash" element={<Dash/>}  />
+        <Route path="/Daily" element={<Daily/>}  />
+        <Route path="/Polls" element={<Polls/>}  />
+        </Routes>
+        <StickyNavbar>
+        <Tab active={window.location.pathname === '/Dash' ? "true" : "false"} onClick={() => window.location.pathname = '/Dash'}>
+            Home
+          </Tab>
+          <Tab active={window.location.pathname === '/Daily' ? "true" : "false"} onClick={() => window.location.pathname = '/Daily'}>
+            Daily
+          </Tab>
+          <Tab active={window.location.pathname === '/Polls' ? "true" : "false"} onClick={() => window.location.pathname = '/Polls'}>
+            Polls
+          </Tab>
+        </StickyNavbar>
+      </AppContainer>
+    </Router>
+  );
 }
 
 export default App;

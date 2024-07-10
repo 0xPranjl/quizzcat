@@ -1,17 +1,11 @@
-.app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
+
 
 .quiz-container {
+    margin-top: 25%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 300px;
     text-align: center;
 }
 
@@ -69,4 +63,8 @@
 .coin-container {
     margin-top: -20px;
     text-align: center;
+}
+
+.app{
+    margin-top: 30%;
 }
