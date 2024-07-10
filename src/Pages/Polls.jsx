@@ -1,7 +1,7 @@
 const Polls=()=>{
 return(
-    <h1>
-        Polls!!
+    <h1 style={{color:"white"}}>
+        Coming soon!!
     </h1>
 )
 }

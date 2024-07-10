@@ -119,7 +119,7 @@ function Daily() {
             </div>:
             <div>
             <Lottie animationData={done} loop={true} /><br></br>
-            <h1 style={{color:"white"}}>All done for Today!!</h1>
+            <h1 style={{color:"black", paddingLeft:40}}>   All done for Today!!</h1>
             </div>
             }
         </div>

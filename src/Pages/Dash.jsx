@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Dash.css';
 import catLogo from '../c1.png'; // Replace with your actual image file path
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "./done.json";
 
 function Dash() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -80,13 +82,10 @@ function Dash() {
                     <h2>Level Xp 🚀 </h2>
                     <p style={{fontSize:26}}>{level}</p>
                 </section>
-                {/* <section className="section-4">
-                    <h2>Coins</h2>
-                    <p>{coins} NotCoins</p>
-                </section> */}
+              
             </main>
-            
         </div>
+        
     );
 }
 
