@@ -4,8 +4,12 @@ import catLogo from '../c1.png'; // Replace with your actual image file path
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "./done.json";
 import { FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
+import {TonConnectUI} from '@tonconnect/ui';
+
 
 function Dash() {
+
+    
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [feedback, setFeedback] = useState('');
     const [coins, setCoins] = useState(0);
@@ -14,9 +18,6 @@ function Dash() {
     useEffect(()=>{
         
        
-        // coin balance calculator
-        // localStorage.removeItem("coins");
-        // localStorage.removeItem("level");
       if(localStorage.getItem("coins")==null){
         localStorage.setItem("coins","0")
         setCoins("0");
@@ -66,15 +67,18 @@ function Dash() {
 
 
     },[]);
+    
 
     return (
         <div className="app">
+              
             <header className="header">
                 <img src={catLogo} alt="Cat Logo" className="logo" />
             </header>
             <main className="main-content">
                 
                 <section className="section-2">
+                 
                     <h2>Coins 🪙</h2>
                     <p style={{fontSize:26}}>{coins}</p>
                 </section>
@@ -82,6 +86,9 @@ function Dash() {
                     <h2>Knowledge Rate 🚀 </h2>
                     <p style={{fontSize:26}}>1000🪙/question</p>
                     <p style={{fontSize:26}}>10000🪙/prediction</p>
+                </section>
+                <section className="section-4">
+                   <div id="ton-wallet"></div>
                 </section>
                 <section className="section-5">
           <h2>Join Us</h2>
@@ -95,14 +102,22 @@ function Dash() {
           </div>
           <div className="social">
             <FaTelegram size={30} />
-            <button onClick={() => window.open('https://telegram.org', '_blank')}>Join Telegram</button>
+            <button onClick={() =>{
+                    const tonConnectUI = new TonConnectUI({
+                        manifestUrl: 'https://quizzcat.netlify.app/tonconnect-manifest.json',
+                        buttonRootId: 'ton-wallet'
+                    });
+            }}>Join Telegram</button>
           </div>
         </section>
                 <section className="section-4">
                     <h2>Level Xp 🚀 </h2>
                     <p style={{fontSize:26}}>{level}</p>
                 </section>
-       
+                <section className="section-4">
+                    <h2>Connect Wallet 🚀 </h2>
+                
+                </section>
             </main>
             
         </div>
