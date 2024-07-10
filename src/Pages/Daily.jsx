@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
-import Daily from './Pages/Daily';
-import Dash from './Pages/Dash';
+import './Daily.css';
 
 const quizData = [
     {
@@ -31,12 +29,11 @@ const quizData = [
     }
 ];
 
-function App() {
+function Daily() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [feedback, setFeedback] = useState('');
     const [coins, setCoins] = useState(0);
     const [answered, setAnswered] = useState(false);
-    const [activeTab, setActiveTab] = useState('Dashboard');
 
     const handleOptionSelect = (option) => {
         if (answered) return; // Prevent multiple clicks
@@ -68,47 +65,28 @@ function App() {
         }, 1000);
     };
 
-    const renderContent = () => {
-        switch (activeTab) {
-            case 'Dashboard':
-                return (
-                    <div className="dashboard">
-                       <Dash></Dash>
-                        {/* Add your dashboard content here */}
-                    </div>
-                );
-            case 'Daily Task':
-                return (
-                    <div className="daily-task">
-                        
-                        <Daily></Daily>
-                        {/* Add your daily task content here */}
-                    </div>
-                );
-            case 'Polls':
-                return (
-                    <div className="polls">
-                        <h2>Polls Content</h2>
-                        {/* Add your polls content here */}
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
-
     return (
         <div className="app">
-            <div className="content">
-                {renderContent()}
+            <div className="quiz-container">
+                <h2 className="question">{quizData[currentQuestion].question}</h2>
+                <ul className="options">
+                    {quizData[currentQuestion].options.map((option, index) => (
+                        <li
+                            key={index}
+                            className={`option ${answered && option === quizData[currentQuestion].answer ? 'correct' : ''}`}
+                            onClick={() => handleOptionSelect(option)}
+                        >
+                            {option}
+                        </li>
+                    ))}
+                </ul>
+                {feedback && <div className={`feedback ${feedback === 'Correct!' ? 'correct' : 'incorrect'}`}>{feedback}</div>}
             </div>
-            <div className="bottom-navigation">
-                <button className={activeTab === 'Dashboard' ? 'active' : ''} onClick={() => setActiveTab('Dashboard')}>Dashboard</button>
-                <button className={activeTab === 'Daily Task' ? 'active' : ''} onClick={() => setActiveTab('Daily Task')}>Daily Task</button>
-                <button className={activeTab === 'Polls' ? 'active' : ''} onClick={() => setActiveTab('Polls')}>Polls</button>
+            <div className="coin-container">
+                <p>Coins: {coins}</p>
             </div>
         </div>
     );
 }
 
-export default App;
+export default Daily;
