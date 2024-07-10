@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Daily.css';
-
+import Lottie from "lottie-react";
+import done from "./done.json";
 const quizData = [
     {
         question: "What is the capital of France?",
@@ -34,7 +35,26 @@ function Daily() {
     const [feedback, setFeedback] = useState('');
     const [coins, setCoins] = useState(0);
     const [answered, setAnswered] = useState(false);
+    const [ani,sani]=useState(false);
 
+
+    useEffect(()=>{
+        if(localStorage.getItem("coins")==null){
+          setCoins("0");
+        }
+        else{
+          setCoins(localStorage.getItem("coins"));
+        }
+        if(localStorage.getItem("ani")==null){
+            
+          }
+          else{
+            if(localStorage.getItem("ani")=="true"){
+             sani(true);
+            }
+          }
+      },[]);
+  
     const handleOptionSelect = (option) => {
         if (answered) return; // Prevent multiple clicks
 
@@ -43,10 +63,16 @@ function Daily() {
 
         if (isCorrect) {
             setFeedback('Correct!');
-            setCoins(coins + 1000);
+            var x=parseInt(localStorage.getItem("coins"))+1000;
+            console.log(x);
+            setCoins(x);
+            localStorage.setItem("coins",x.toString());
         } else {
             setFeedback('Wrong!');
-            setCoins(coins + 100);
+            var x=parseInt(localStorage.getItem("coins"))+100;
+            setCoins(x);
+            localStorage.setItem("coins",x.toString());
+            
         }
 
         setAnswered(true);
@@ -57,6 +83,8 @@ function Daily() {
                 setAnswered(false); // Reset answered state for next question
             } else {
                 alert('Quiz completed!');
+                sani(true);
+                localStorage.setItem("ani","true");
                 setCurrentQuestion(0);
                 setFeedback('');
                 setCoins(0);
@@ -67,7 +95,7 @@ function Daily() {
 
     return (
         <div className="app">
-            <div className="quiz-container">
+            {!ani?<div><div className="quiz-container">
                 <h2 className="question">{quizData[currentQuestion].question}</h2>
                 <ul className="options">
                     {quizData[currentQuestion].options.map((option, index) => (
@@ -88,6 +116,12 @@ function Daily() {
             <div className="coin-container">
                 <p>Coins: {coins}</p>
             </div>
+            </div>:
+            <div>
+            <Lottie animationData={done} loop={true} /><br></br>
+            <h1 style={{color:"white"}}>All done for Today!!</h1>
+            </div>
+            }
         </div>
     );
 }
