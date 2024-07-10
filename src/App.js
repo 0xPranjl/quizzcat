@@ -42,14 +42,14 @@ const App = () => {
         <Route path="/Polls" element={<Polls/>}  />
         </Routes>
         <StickyNavbar>
-        <Tab active={window.location.pathname === '/Dash' ? "true" : "false"} onClick={() => window.location.pathname = '/Dash'}>
-            Home
+        <Tab style={{fontSize:34}} active={window.location.pathname === '/Dash' ? "true" : "false"} onClick={() => window.location.pathname = '/Dash'}>
+         🏠
           </Tab>
-          <Tab active={window.location.pathname === '/Daily' ? "true" : "false"} onClick={() => window.location.pathname = '/Daily'}>
-            Daily
+          <Tab style={{fontSize:34}} active={window.location.pathname === '/Daily' ? "true" : "false"} onClick={() => window.location.pathname = '/Daily'}>
+          🧑‍💼 
           </Tab>
-          <Tab active={window.location.pathname === '/Polls' ? "true" : "false"} onClick={() => window.location.pathname = '/Polls'}>
-            Polls
+          <Tab style={{fontSize:34}} active={window.location.pathname === '/Polls' ? "true" : "false"} onClick={() => window.location.pathname = '/Polls'}>
+          🗳️
           </Tab>
         </StickyNavbar>
       </AppContainer>
