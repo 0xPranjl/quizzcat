@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Dash from "../src/Pages/Dash";
 import Daily from "../src/Pages/Daily";
 import Polls from "../src/Pages/Polls";
+import Splash from '../src/Pages/Splash';
 const AppContainer = styled.div`
   min-height: 100vh;
   background-image: url('path_to_your_background_image');
@@ -32,15 +33,18 @@ const Tab = styled.div`
 `;
 
 const App = () => {
+  const [ani,sani]=useState(false);
+ 
   return (
     <Router>
       <AppContainer>
         <Routes>
-        <Route path="/" element={<Dash/>}  />
+        <Route path="/" element={<Splash/>}  />
         <Route path="/Dash" element={<Dash/>}  />
         <Route path="/Daily" element={<Daily/>}  />
         <Route path="/Polls" element={<Polls/>}  />
         </Routes>
+    
         <StickyNavbar>
         <Tab style={{fontSize:34}} active={window.location.pathname === '/Dash' ? "true" : "false"} onClick={() => window.location.pathname = '/Dash'}>
          🏠

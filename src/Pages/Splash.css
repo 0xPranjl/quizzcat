@@ -1,0 +1,31 @@
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #f0f0f0;  */
+    text-align: center;
+  }
+  
+  .logo {
+    width: 250px; /* Adjust the size of the logo as needed */
+    margin-bottom: 20px;
+  }
+  
+  .name {
+    font-size: 4.5rem;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif; /* You can choose any stylish font */
+    margin: 0;
+  }
+  
+  .tagline {
+    font-size: 1.6rem;
+    background-color: #ffffff;
+    border-radius:50;
+    color:#000000;
+    font-family:"Lucida Handwriting", Lucida Handwriting; /* You can choose any stylish font */
+    margin: 0;
+  }
+  
