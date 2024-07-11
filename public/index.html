@@ -47,49 +47,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
       <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    function launchFullScreen() {
-        var element = document.documentElement; // Get the root element of the document
-
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.mozRequestFullScreen) { // Firefox
-            element.mozRequestFullScreen();
-        } else if (element.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) { // IE/Edge
-            element.msRequestFullscreen();
-        }
-    }
-
-    // Trigger fullscreen mode upon initialization
-    launchFullScreen();
-
-    document.addEventListener("fullscreenchange", function() {
-        if (!document.fullscreenElement) {
-            console.log("Exited fullscreen mode");
-        }
-    });
-
-    document.addEventListener("mozfullscreenchange", function() {
-        if (!document.mozFullScreenElement) {
-            console.log("Exited fullscreen mode");
-        }
-    });
-
-    document.addEventListener("webkitfullscreenchange", function() {
-        if (!document.webkitFullscreenElement) {
-            console.log("Exited fullscreen mode");
-        }
-    });
-
-    document.addEventListener("msfullscreenchange", function() {
-        if (!document.msFullscreenElement) {
-            console.log("Exited fullscreen mode");
-        }
-    });
-});
-
+        
         </script>
   </body>
 </html>
