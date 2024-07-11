@@ -14,6 +14,7 @@ function Dash() {
     const [feedback, setFeedback] = useState('');
     const [coins, setCoins] = useState(0);
     const [level, setlevel] = useState("");
+    const [btn,sbtn]=useState(false);
     const [answered, setAnswered] = useState(false);
     useEffect(()=>{
         
@@ -76,7 +77,17 @@ function Dash() {
                 <img src={catLogo} alt="Cat Logo" className="logo" />
             </header>
             <main className="main-content">
-                
+            <section className="section-4">
+                    <h2>Link wallet 🚀(+1000🪙) </h2>
+                    {!btn?<div className='social'><button onClick={()=>{
+                       sbtn(true);
+                       const tonConnectUI = new TonConnectUI({
+                        manifestUrl: 'https://quizzcat.netlify.app/tonconnect-manifest.json',
+                        buttonRootId: 'ton-wallet'
+                    });
+                    }}>Link wallet</button></div>:<></>}
+                    <div id="ton-wallet"></div>
+                </section>
                 <section className="section-2">
                  
                     <h2>Coins 🪙</h2>
@@ -84,39 +95,30 @@ function Dash() {
                 </section>
                 <section className="section-4">
                     <h2>Knowledge Rate 🚀 </h2>
-                    <p style={{fontSize:26}}>1000🪙/question</p>
-                    <p style={{fontSize:26}}>10000🪙/prediction</p>
+                    <p style={{fontSize:26}}>1K🪙/question</p>
+                    <p style={{fontSize:26}}>10K🪙/prediction</p>
                 </section>
                 <section className="section-4">
-                   <div id="ton-wallet"></div>
+                  
                 </section>
                 <section className="section-5">
-          <h2>Join Us</h2>
+          <h2>Easy Tasks</h2>
           <div className="social">
             <FaTwitter size={30} />
-            <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter</button>
+            <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter(+1000🪙)</button>
           </div>
           <div className="social">
             <FaYoutube size={30} />
-            <button onClick={() => window.open('https://youtube.com', '_blank')}>Join YouTube</button>
+            <button onClick={() => window.open('https://youtube.com', '_blank')}>Join YouTube(+1000🪙)</button>
           </div>
           <div className="social">
             <FaTelegram size={30} />
-            <button onClick={() =>{
-                    const tonConnectUI = new TonConnectUI({
-                        manifestUrl: 'https://quizzcat.netlify.app/tonconnect-manifest.json',
-                        buttonRootId: 'ton-wallet'
-                    });
-            }}>Join Telegram</button>
+            <button onClick={() => window.open('https://t.me/', '_blank')}>Join Telegram(+1000🪙)</button>
           </div>
         </section>
                 <section className="section-4">
                     <h2>Level Xp 🚀 </h2>
                     <p style={{fontSize:26}}>{level}</p>
-                </section>
-                <section className="section-4">
-                    <h2>Connect Wallet 🚀 </h2>
-                
                 </section>
             </main>
             
