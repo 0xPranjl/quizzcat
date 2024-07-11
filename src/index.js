@@ -7,7 +7,7 @@ import { Buffer } from 'buffer';
 import WebApp from '@twa-dev/sdk';
 window.Buffer = Buffer;
 WebApp.ready();
-
+WebApp.expand();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
