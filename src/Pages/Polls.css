@@ -1,0 +1,35 @@
+.PollsPage {
+    text-align: center;
+  }
+  
+  .poll {
+    border: 1px solid #ddd;
+    background-color: azure;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .poll h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .poll button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+  
+  .result {
+    margin-top: 20px;
+  }
+  
+  .headings {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 20px;
+  }
+  
