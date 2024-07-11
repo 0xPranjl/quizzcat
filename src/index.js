@@ -4,7 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Buffer } from 'buffer';
+import WebApp from '@twa-dev/sdk';
 window.Buffer = Buffer;
+WebApp.ready();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
