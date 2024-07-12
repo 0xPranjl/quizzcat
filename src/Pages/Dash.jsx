@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Dash.css';
 import Typewriter from 'typewriter-effect';
+import Counter from "./Counter";
 const Dash= () => {
   const [placeholder, setPlaceholder] = useState('');
   const phrases = ['buy anything ', '  buy everything '];
@@ -30,7 +31,12 @@ const Dash= () => {
          <div className="input-containe">
       <input type="text" className="search-input" placeholder="Search for products..." />
     </div>
+    <header className="App-header">
+        <Counter start={0} end={50000} duration={3000} />
+        <h1>Store Count</h1>
+      </header>
     </div>
+    
    </div>
   );
 };

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center; 
-  height: 50vh;
+  height: 80vh;
   
 }
 
@@ -17,6 +17,7 @@
 
 .typewriter-container {
   font-size: 2rem; /* Increase the font size here */
+  font-weight: bold;
   color: #000000; /* Set the color to match the input */
 }
 
@@ -31,6 +32,7 @@
   border-radius: 4px;
   outline: none;
   color: #000000;
+  font-weight: bold;
   background: transparent;
   position: absolute;
   top: 0;
@@ -74,4 +76,16 @@
   transform: translateY(-50%);
   font-size: 1.25rem;
   color: #aaa;
+}
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.5rem;
+}
+
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
 }
