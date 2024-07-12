@@ -44,18 +44,6 @@ const App = () => {
         <Route path="/Daily" element={<Daily/>}  />
         <Route path="/Polls" element={<Polls/>}  />
         </Routes>
-    
-        <StickyNavbar>
-        <Tab style={{fontSize:34}} active={window.location.pathname === '/Dash' ? "true" : "false"} onClick={() => window.location.pathname = '/Dash'}>
-         🏠
-          </Tab>
-          <Tab style={{fontSize:34}} active={window.location.pathname === '/Daily' ? "true" : "false"} onClick={() => window.location.pathname = '/Daily'}>
-          🧑‍💼 
-          </Tab>
-          <Tab style={{fontSize:34}} active={window.location.pathname === '/Polls' ? "true" : "false"} onClick={() => window.location.pathname = '/Polls'}>
-          🗳️
-          </Tab>
-        </StickyNavbar>
       </AppContainer>
     </Router>
   );

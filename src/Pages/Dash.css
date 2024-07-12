@@ -1,76 +1,77 @@
-.app {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 50vh;
   
-    padding: 20px;
-    /* height: 100vh; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    opacity: 0.9;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-    flex-shrink: 0;
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-.main-content {
-    display: grid;
-    gap: 10px;
-    width: 250px;
-    margin-bottom: 200px;
-    overflow-y: auto;
-    flex:1;
+.typewriter-container {
+  font-size: 2rem; /* Increase the font size here */
+  color: #000000; /* Set the color to match the input */
 }
 
-.section-1, .section-2, .section-3, .section-4 {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
+.input-container {
+  position: relative;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
+.animated-input {
+  font-size: 3.5rem;
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 4px;
+  outline: none;
+  color: #000000;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-.logo {
-    width: 200px; /* Adjust size as needed */
-    height: auto;
-    border: 4px solid red;
-    border-radius: 120px;
-    display: block;
-    margin: 0 auto;
-    margin-top: -100;
+.input-containe{
+  position: relative;
+  padding: 50px;
+  width: 400px;
 }
 
-.social button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  .social button:hover {
-    background-color: #0056b3;
-  }
+.search-input {
+  width: 80%;
+  padding: 15px 20px;
+  padding-left: 40px; /* Space for the icon */
+  font-size: 1.25rem; /* Adjust font size */
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
+  color: #333;
+}
 
-  .section-5 {
-    margin-top: 20px;
-  }
-  
-  .social {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
+.search-input:focus {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
 
+.search-input::placeholder {
+  color: #aaa;
+}
+
+/* Optional: add a search icon inside the input */
+.input-container::before {
+  /* content: '🔍'; */
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #aaa;
+}
