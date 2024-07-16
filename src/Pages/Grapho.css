@@ -1,0 +1,116 @@
+/* src/Grapho.css */
+.graph-container {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  top: 100px;
+  margin: auto;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.y-label {
+  text-align: center;
+}
+
+.x-axis {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  right: 0;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.x-tick {
+  width: 1px;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wave-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar {
+  position: absolute;
+  top: calc(50% - 25px); /* Center the avatar vertically */
+  left: calc(50% - 25px); /* Center the avatar horizontally */
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.y-value {
+  margin-top: 5px;
+  font-size: 21px;
+  font-weight: 800;
+  color: #333;
+}
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto; /* Center modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Adjust width as needed */
+  max-width: 400px; /* Set maximum width */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.pop{
+  font-weight: 800;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
