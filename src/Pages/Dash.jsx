@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "./done.json";
 import { FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
 import {TonConnectUI} from '@tonconnect/ui';
-
+import TwitterLogin from "react-twitter-login";
 
 function Dash() {
 
@@ -68,7 +68,9 @@ function Dash() {
 
 
     },[]);
-    
+    const authHandler = (err, data) => {
+      console.log(err, data);
+    };
 
     return (
         <div className="app">
@@ -105,7 +107,12 @@ function Dash() {
           <h2>Easy Tasks</h2>
           <div className="social">
             <FaTwitter size={30} />
-            <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter(+1000🪙)</button>
+            <TwitterLogin
+      authCallback={authHandler}
+      consumerKey={"PyHxgJuyORZqhDiuKAne8LcxT"}
+      consumerSecret={"RBqOgWJfflgk2GLGmKtHFnHituqvf3vROPfAqzOPpfKficIrI9"}
+    />
+            {/* <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter(+1000🪙)</button> */}
           </div>
           <div className="social">
             <FaYoutube size={30} />
