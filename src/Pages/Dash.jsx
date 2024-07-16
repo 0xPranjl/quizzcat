@@ -5,20 +5,41 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "./done.json";
 import { FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
 import {TonConnectUI} from '@tonconnect/ui';
-import TwitterLogin from "react-twitter-login";
+import TwitterLogin from "react-twitter-auth";
+import { getAdditionalUserInfo, getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { useNavigate } from 'react-router-dom';
 
 function Dash() {
+  const Navigate=useNavigate();
+  const firebaseConfig = {
+    apiKey: "AIzaSyBvbHizWaTFQfEucFTKMcw68zvjFCNmG8c",
+    authDomain: "quizzcat-a716b.firebaseapp.com",
+    projectId: "quizzcat-a716b",
+    storageBucket: "quizzcat-a716b.appspot.com",
+    messagingSenderId: "689879843572",
+    appId: "1:689879843572:web:5dceedbb1a11875e69d4a1",
+    measurementId: "G-EV1F3SN029"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const provider = new TwitterAuthProvider();
 
-    
+
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [feedback, setFeedback] = useState('');
     const [coins, setCoins] = useState(0);
     const [level, setlevel] = useState("");
+    const [xid,setxid]=useState();
     const [btn,sbtn]=useState(false);
     const [answered, setAnswered] = useState(false);
     useEffect(()=>{
         
-       
+      if(localStorage.getItem("xid")!=null){
+         
+      }
+      
       if(localStorage.getItem("coins")==null){
         localStorage.setItem("coins","0")
         setCoins("0");
@@ -68,10 +89,39 @@ function Dash() {
 
 
     },[]);
-    const authHandler = (err, data) => {
-      console.log(err, data);
-    };
 
+async function loginx(){
+const auth = getAuth();
+
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+    // You can use these server side with your app's credentials to access the Twitter API.
+    const credential = TwitterAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const secret = credential.secret;
+
+    // The signed-in user info.
+    //const user = result.user.uid;
+    console.log(result);
+    const username=getAdditionalUserInfo(result).username;
+    console.log(username);
+    localStorage.setItem("xid",username);
+
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = TwitterAuthProvider.credentialFromError(error);
+    console.log(email);
+    // ...
+  });
+}
     return (
         <div className="app">
               
@@ -107,12 +157,7 @@ function Dash() {
           <h2>Easy Tasks</h2>
           <div className="social">
             <FaTwitter size={30} />
-            <TwitterLogin
-      authCallback={authHandler}
-      consumerKey={"PyHxgJuyORZqhDiuKAne8LcxT"}
-      consumerSecret={"RBqOgWJfflgk2GLGmKtHFnHituqvf3vROPfAqzOPpfKficIrI9"}
-    />
-            {/* <button onClick={() => window.open('https://twitter.com', '_blank')}>Join Twitter(+1000🪙)</button> */}
+                 <button onClick={() => loginx()}>Join Twitter(+1000🪙)</button>
           </div>
           <div className="social">
             <FaYoutube size={30} />
@@ -120,7 +165,7 @@ function Dash() {
           </div>
           <div className="social">
             <FaTelegram size={30} />
-            <button onClick={() => window.open('https://t.me/', '_blank')}>Join Telegram(+1000🪙)</button>
+            <button onClick={() => Navigate("/Lottery")}>Join Telegram(+1000🪙)</button>
           </div>
         </section>
                 <section className="section-4">
