@@ -31,6 +31,10 @@ const Vc = () => {
         myVideo.current.srcObject = stream;
       }
     });
+     socket.on('client-id', (id) => {
+      alert(id);
+    });
+
 
     socket.on('offer', (data) => {
       setReceivingCall(true);
