@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import SimplePeer from 'simple-peer';
 import { v4 as uuidv4 } from 'uuid';
 
-const socket = io('http://13.51.171.52:5000');
+const socket = io('https://victorious-kordula-superintellgia-25a7696d.koyeb.app/');
 
 const iceServers = [
   { urls: 'stun:stun.l.google.com:19302' },
