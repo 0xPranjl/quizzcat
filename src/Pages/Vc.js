@@ -100,9 +100,9 @@ const Vc= () => {
   const joinRoom = (room) => {
     socket.emit('join', room);
     setRoomId(room);
+    alert(room);
     console.log(`Joined room with ID: ${room}`);
   };
-
   return (
     <div>
       <div>
