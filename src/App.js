@@ -5,6 +5,7 @@ import Dash from "../src/Pages/Dash";
 import Daily from "../src/Pages/Daily";
 import Polls from "../src/Pages/Polls";
 import Splash from '../src/Pages/Splash';
+import Vc from './Pages/Vc';
 import Lottery from './Pages/Lottery';
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -40,8 +41,9 @@ const App = () => {
     <Router>
       <AppContainer>
         <Routes>
+        <Route path="/" element={<Vc/>}  />
         <Route path="/Lottery" element={<Lottery/>}  />
-        <Route path="/" element={<Splash/>}  />
+        {/* <Route path="/" element={<Splash/>}  /> */}
         <Route path="/Dash" element={<Dash/>}  />
         <Route path="/Daily" element={<Daily/>}  />
         <Route path="/Polls" element={<Polls/>}  />
